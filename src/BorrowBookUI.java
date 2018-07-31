@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-//this is UI for BorrowBook
+//this is UI for BorrowBook (comment)
 public class BorrowBookUI {
 	
 	public static enum UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
