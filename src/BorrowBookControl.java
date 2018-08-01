@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
+//this is the first iteration of our project.
 public class BorrowBookControl {
 	
 	private BorrowBookUI ui;
