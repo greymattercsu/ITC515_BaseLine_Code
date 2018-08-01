@@ -62,15 +62,16 @@ public class BorrowBookControl {
 		if (!state.equals(CONTROL_STATE.READY)) 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
-		M = library.getMember(memberId); //renamed variable L to Library
+		member = library.getMember(memberId); //renamed variable L to Library and changed M to member
 
-		if (M == null) {
+		//renamed M to member
+		if (member == null) {
 			ui.display("Invalid memberId");
 			return;
 		}
 
-		//renamed variable L to Library
-		if (library.memberCanBorrow(M)) {
+		//renamed variable L to Library and renamed M to member
+		if (library.memberCanBorrow(member)) {
 			PENDING = new ArrayList<>();
 			ui.setState(BorrowBookUI.UI_STATE.SCANNING);
 			state = CONTROL_STATE.SCANNING; }
@@ -112,8 +113,8 @@ public class BorrowBookControl {
 			ui.display(B.toString());
 		}
 
-		//renamed variable L to Library
-		if (library.loansRemainingForMember(M) - PENDING.size() == 0) {
+		//renamed variable L to Library and renamed M to member
+		if (library.loansRemainingForMember(member) - PENDING.size() == 0) {
 			ui.display("Loan limit reached");
 			Complete();
 		}
@@ -149,7 +150,7 @@ public class BorrowBookControl {
 
 
 		for (book b : PENDING) {
-			loan loan = library.issueLoan(b, M);//renamed variable L to Library
+			loan loan = library.issueLoan(b, member);//renamed variable L to Library and renamed M to member
 			COMPLETED.add(loan);			
 		}
 
