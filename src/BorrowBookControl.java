@@ -15,18 +15,18 @@ public class BorrowBookControl {
 	
 	private BorrowBookUI ui;
 	
-	private library library;
-	private member member;
+	private library library; // renamed variable L to library
+	private member member; // renamed variable M to member
 	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-	private CONTROL_STATE state;
+	private CONTROL_STATE state; 
 	
 	private List<book> PENDING;
 	private List<loan> COMPLETED;
-	private book book;
+	private book book; //renamed variable B to book
 	
-	
+	//renamed all the instances of L to Library
 	public BorrowBookControl() {
-		this.L = L.INSTANCE();
+		this.library = library.INSTANCE();
 		state = CONTROL_STATE.INITIALISED;
 	}
 	
@@ -45,12 +45,13 @@ public class BorrowBookControl {
 		if (!state.equals(CONTROL_STATE.READY)) 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
-		M = L.getMember(memberId);
+		M = library.getMember(memberId);
+
 		if (M == null) {
 			ui.display("Invalid memberId");
 			return;
 		}
-		if (L.memberCanBorrow(M)) {
+		if (library.memberCanBorrow(M)) {
 			PENDING = new ArrayList<>();
 			ui.setState(BorrowBookUI.UI_STATE.SCANNING);
 			state = CONTROL_STATE.SCANNING; }
@@ -65,7 +66,7 @@ public class BorrowBookControl {
 		if (!state.equals(CONTROL_STATE.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 		}	
-		B = L.Book(bookId);
+		B = library.Book(bookId);
 		if (B == null) {
 			ui.display("Invalid bookId");
 			return;
@@ -78,7 +79,7 @@ public class BorrowBookControl {
 		for (book B : PENDING) {
 			ui.display(B.toString());
 		}
-		if (L.loansRemainingForMember(M) - PENDING.size() == 0) {
+		if (library.loansRemainingForMember(M) - PENDING.size() == 0) {
 			ui.display("Loan limit reached");
 			Complete();
 		}
@@ -106,7 +107,7 @@ public class BorrowBookControl {
 			throw new RuntimeException("BorrowBookControl: cannot call commitLoans except in FINALISING state");
 		}	
 		for (book b : PENDING) {
-			loan loan = L.issueLoan(b, M);
+			loan loan = library.issueLoan(b, M);
 			COMPLETED.add(loan);			
 		}
 		ui.display("Completed Loan Slip");
