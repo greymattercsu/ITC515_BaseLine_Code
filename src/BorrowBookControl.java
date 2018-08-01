@@ -83,7 +83,7 @@ public class BorrowBookControl {
 	
 	public void Scanned(int bookId) {
 		
-		B = null;
+		book = null;
 
 
 		if (!state.equals(CONTROL_STATE.SCANNING)) {
@@ -91,26 +91,26 @@ public class BorrowBookControl {
 		}
 
 		//renamed variable L to Library
-		B = library.Book(bookId);
+		book = library.Book(bookId);
 
 
-		if (B == null) {
+		if (book == null) {
 			ui.display("Invalid bookId");
 			return;
 		}
 
 
-		if (!B.Available()) {
+		if (!book.Available()) {
 			ui.display("Book cannot be borrowed");
 			return;
 		}
 
 
-		PENDING.add(B);
+		PENDING.add(book);
 
 
-		for (book B : PENDING) {
-			ui.display(B.toString());
+		for (book book : PENDING) {
+			ui.display(book.toString());
 		}
 
 		//renamed variable L to Library and renamed M to member
@@ -129,7 +129,7 @@ public class BorrowBookControl {
 		}
 		else {
 			ui.display("\nFinal Borrowing List");
-			for (book b : PENDING) {
+			for (book book : PENDING) {
 				ui.display(b.toString());
 			}
 
@@ -149,7 +149,7 @@ public class BorrowBookControl {
 		}
 
 
-		for (book b : PENDING) {
+		for (book book : PENDING) {
 			loan loan = library.issueLoan(b, member);//renamed variable L to Library and renamed M to member
 			COMPLETED.add(loan);			
 		}
