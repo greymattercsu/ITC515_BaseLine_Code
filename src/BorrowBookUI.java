@@ -1,3 +1,11 @@
+/**
+@author:Saurav Pradhan
+@reviewer: Sanchay Gurung
+@Mediator: Ashish Shrestha
+@Scriber: Bijan Dhakal
+
+*/
+
 import java.util.Scanner;
 
 //this is UI for BorrowBook (comment)
@@ -45,15 +53,15 @@ public class BorrowBookUI {
 				output("Borrowing Cancelled");
 				return;
 
-				
+			//renamed all memberStr to memberString 
 			case READY:
 				String memberString = input("Swipe member card (press <enter> to cancel): ");//changed memberStr to memberString
-				if (memStr.length() == 0) {
+				if (memberString.length() == 0) {
 					control.cancel();
 					break;
 				}
 				try {
-					int memberId = Integer.valueOf(memStr).intValue();
+					int memberId = Integer.valueOf(memberString).intValue();
 					control.Swiped(memberId);
 				}
 				catch (NumberFormatException e) {
@@ -67,15 +75,15 @@ public class BorrowBookUI {
 				control.cancel();
 				break;
 			
-				
+			//renamed all bookStr to bookString	
 			case SCANNING:
 				String bookString = input("Scan Book (<enter> completes): ");//changed bookStr to bookString
-				if (bookStr.length() == 0) {
+				if (bookString.length() == 0) {
 					control.Complete();
 					break;
 				}
 				try {
-					int bookId = Integer.valueOf(bookStr).intValue();
+					int bookId = Integer.valueOf(bookString).intValue();
 					control.Scanned(bookId);
 					
 				} catch (NumberFormatException e) {
@@ -83,10 +91,11 @@ public class BorrowBookUI {
 				} 
 				break;
 					
-				
+			
+			//renamed all ans to answer	
 			case FINALISING:
 				String answer = input("Commit loans? (Y/N): "); //changed ans to answer
-				if (ans.toUpperCase().equals("N")) {
+				if (answer.toUpperCase().equals("N")) {
 					control.cancel();
 					
 				} else {
