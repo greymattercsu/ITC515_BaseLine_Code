@@ -11,6 +11,7 @@ import java.util.Scanner;
 //this is UI for BorrowBook (comment)
 public class BorrowBookUI {
 	
+	//changed the formating of the constants 
 	public static enum UI_STATE { INITIALISED, 
 		                          READY, 
 		                          RESTRICTED, 
@@ -49,6 +50,8 @@ public class BorrowBookUI {
 	}
 
 	
+
+	//changed the spacing of the line for the switch cases to match the formating convention of the java
 	public void run() {
 		output("Borrow Book Use Case UI\n");
 		
