@@ -83,30 +83,32 @@ public class BorrowBookControl {
 	
 	public void Scanned(int bookId) {
 		
-		book = null;
+		book = null; //renamed variable B to book
 
 
 		if (!state.equals(CONTROL_STATE.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 		}
 
-		//renamed variable L to Library
+		//renamed variable L to Library and B to book
 		book = library.Book(bookId);
 
 
+		//renamed variable B to book
 		if (book == null) {
 			ui.display("Invalid bookId");
 			return;
 		}
 
 
+		//renamed variable B to book
 		if (!book.Available()) {
 			ui.display("Book cannot be borrowed");
 			return;
 		}
 
 
-		PENDING.add(book);
+		PENDING.add(book);//renamed variable B to book
 
 
 		for (book book : PENDING) {
@@ -130,7 +132,7 @@ public class BorrowBookControl {
 		else {
 			ui.display("\nFinal Borrowing List");
 			for (book book : PENDING) {
-				ui.display(b.toString());
+				ui.display(book.toString()); //renamed variable B to book
 			}
 
 
@@ -149,8 +151,11 @@ public class BorrowBookControl {
 		}
 
 
+		//renamed variable B to book
 		for (book book : PENDING) {
-			loan loan = library.issueLoan(b, member);//renamed variable L to Library and renamed M to member
+
+			//renamed variable L to Library, renamed M to member and renamed variable B to book
+			loan loan = library.issueLoan(book, member); //renamed variable B to book
 			COMPLETED.add(loan);			
 		}
 
