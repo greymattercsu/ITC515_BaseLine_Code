@@ -1,3 +1,11 @@
+/**
+@author:Saurav Pradhan
+@reviewer: Sanchay Gurung
+@Mediator: Ashish Shrestha
+@Scriber: Bijan Dhakal
+
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,14 +15,14 @@ public class BorrowBookControl {
 	
 	private BorrowBookUI ui;
 	
-	private library L;
-	private member M;
+	private library library;
+	private member member;
 	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
 	private CONTROL_STATE state;
 	
 	private List<book> PENDING;
 	private List<loan> COMPLETED;
-	private book B;
+	private book book;
 	
 	
 	public BorrowBookControl() {
