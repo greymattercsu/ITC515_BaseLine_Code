@@ -26,7 +26,7 @@ public class BorrowBookControl {
 	
 	//renamed all the instances of L to Library
 	public BorrowBookControl() {
-		this.library = library.INSTANCE();
+		this.library = library.INSTANCE();//renamed variable L to Library
 		state = CONTROL_STATE.INITIALISED;
 	}
 	
@@ -45,12 +45,14 @@ public class BorrowBookControl {
 		if (!state.equals(CONTROL_STATE.READY)) 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
-		M = library.getMember(memberId);
+		M = library.getMember(memberId); //renamed variable L to Library
 
 		if (M == null) {
 			ui.display("Invalid memberId");
 			return;
 		}
+
+		//renamed variable L to Library
 		if (library.memberCanBorrow(M)) {
 			PENDING = new ArrayList<>();
 			ui.setState(BorrowBookUI.UI_STATE.SCANNING);
@@ -62,23 +64,36 @@ public class BorrowBookControl {
 	
 	
 	public void Scanned(int bookId) {
+		
 		B = null;
 		if (!state.equals(CONTROL_STATE.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
-		}	
+		}
+
+		//renamed variable L to Library
 		B = library.Book(bookId);
+
+		
 		if (B == null) {
 			ui.display("Invalid bookId");
 			return;
 		}
+
+
 		if (!B.Available()) {
 			ui.display("Book cannot be borrowed");
 			return;
 		}
+
+
 		PENDING.add(B);
+
+
 		for (book B : PENDING) {
 			ui.display(B.toString());
 		}
+
+		//renamed variable L to Library
 		if (library.loansRemainingForMember(M) - PENDING.size() == 0) {
 			ui.display("Loan limit reached");
 			Complete();
