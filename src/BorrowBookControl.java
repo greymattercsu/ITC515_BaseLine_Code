@@ -35,7 +35,7 @@ public class BorrowBookControl {
 	private List<book> PENDING;
 	private List<loan> COMPLETED;
 
-	private book book; //renamed variable B to book
+	private Book book; //renamed variable B to book and changed the b in book to Book
 	
 	//renamed all the instances of L to Library
 	public BorrowBookControl() {
@@ -117,8 +117,8 @@ public class BorrowBookControl {
 
 		PENDING.add(book);//renamed variable B to book
 
-
-		for (book book : PENDING) {
+		//changed the b in book to Book
+		for (Book book : PENDING) {
 			ui.display(book.toString());
 		}
 
@@ -158,8 +158,8 @@ public class BorrowBookControl {
 		}
 
 
-		//renamed variable B to book
-		for (book book : PENDING) {
+		//renamed variable B to book and changed the b in book to Book
+		for (Book book : PENDING) {
 
 			//renamed variable L to Library, renamed M to member and renamed variable B to book
 			loan loan = library.issueLoan(book, member); //renamed variable B to book
@@ -169,8 +169,8 @@ public class BorrowBookControl {
 
 		ui.display("Completed Loan Slip");
 
-
-		for (loan loan : COMPLETED) {
+		//changed the l in loan to Loan
+		for (Loan loan : COMPLETED) {
 			ui.display(loan.toString());
 		}
 
