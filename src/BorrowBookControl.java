@@ -21,13 +21,13 @@ public class BorrowBookControl {
 	//changed formating for easier code reading
 	//renamed the variable CONTROL_STATE to ControlState
 	private enum ControlState { INITIALISED, 
-		                         READY, 
-		                         RESTRICTED, 
-		                         SCANNING, 
-		                         IDENTIFIED, 
-		                         FINALISING, 
-		                         COMPLETED, 
-		                         CANCELLED };
+		                        READY, 
+		                        RESTRICTED, 
+		                        SCANNING, 
+		                        IDENTIFIED, 
+		                        FINALISING, 
+		                        COMPLETED, 
+		                        CANCELLED };
 
 
 	private ControlState state; 
@@ -57,7 +57,7 @@ public class BorrowBookControl {
 		this.ui = ui;
 
 
-		ui.setState(BorrowBookUI.UI_STATE.READY);
+		ui.setState(BorrowBookUI.UiState.READY); //changed UI_STATE to UiState
 		state = ControlState.READY;		
 	}
 
@@ -80,12 +80,12 @@ public class BorrowBookControl {
 		//renamed variable L to Library and renamed M to member
 		if (library.memberCanBorrow(member)) {
 			PENDING = new ArrayList<>();
-			ui.setState(BorrowBookUI.UI_STATE.SCANNING);
+			ui.setState(BorrowBookUI.UiState.SCANNING); //changed UI_STATE to UiState
 			state = ControlState.SCANNING; }
-		else 
-		{
+		else {
 			ui.display("Member cannot borrow at this time");
-			ui.setState(BorrowBookUI.UI_STATE.RESTRICTED); }}
+			ui.setState(BorrowBookUI.UiState.RESTRICTED); } //changed UI_STATE to UiState
+		} 
 	
 	
 	public void Scanned(int bookId) {
@@ -144,7 +144,7 @@ public class BorrowBookControl {
 
 
 			COMPLETED = new ArrayList<loan>();
-			ui.setState(BorrowBookUI.UI_STATE.FINALISING);
+			ui.setState(BorrowBookUI.UiState.FINALISING); //changed UI_STATE to UiState
 			state = ControlState.FINALISING;
 		}
 	}
@@ -175,14 +175,14 @@ public class BorrowBookControl {
 		}
 
 
-		ui.setState(BorrowBookUI.UI_STATE.COMPLETED);
+		ui.setState(BorrowBookUI.UiState.COMPLETED); //changed UI_STATE to UiState
 		state = ControlState.COMPLETED;
 	}
 
 	
 	public void cancel() {
 
-		ui.setState(BorrowBookUI.UI_STATE.CANCELLED);
+		ui.setState(BorrowBookUI.UiState.CANCELLED); //changed UI_STATE to UiState
 		state = ControlState.CANCELLED;
 	}
 	
