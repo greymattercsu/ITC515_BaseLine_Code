@@ -15,8 +15,8 @@ public class BorrowBookControl {
 	
 	private BorrowBookUI ui;
 	
-	private library library; // renamed variable L to library
-	private member member; // renamed variable M to member
+	private Library library; // renamed variable L to library and change the library to Library
+	private Member member; // renamed variable M to member and change the member to Member
 
 	//changed formating for easier code reading
 	//renamed the variable CONTROL_STATE to ControlState
@@ -48,8 +48,11 @@ public class BorrowBookControl {
 	
 
 	public void setUI(BorrowBookUI ui) {
-		if (!state.equals(ControlState.INITIALISED)) 
+
+		//added curly braces
+		if (!state.equals(ControlState.INITIALISED)) {
 			throw new RuntimeException("BorrowBookControl: cannot call setUI except in INITIALISED state");
+		}
 			
 		this.ui = ui;
 
@@ -60,8 +63,11 @@ public class BorrowBookControl {
 
 		
 	public void Swiped(int memberId) {
-		if (!state.equals(ControlState.READY)) 
+
+		//added curly braces
+		if (!state.equals(ControlState.READY)) {
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
+		}
 			
 		member = library.getMember(memberId); //renamed variable L to Library and changed M to member
 
