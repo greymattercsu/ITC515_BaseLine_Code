@@ -11,25 +11,26 @@ import java.util.Scanner;
 //this is UI for BorrowBook (comment)
 public class BorrowBookUI {
 	
-	//changed the formating of the constants 
-	public static enum UI_STATE { INITIALISED, 
-		                          READY, 
-		                          RESTRICTED, 
-		                          SCANNING, 
-		                          IDENTIFIED, 
-		                          FINALISING, 
-		                          COMPLETED, 
-		                          CANCELLED};
+	//changed the formating of the constants
+	//changed enum variable name from UI_STATE to UiState 
+	public static enum UiState { INITIALISED, 
+		                         READY, 
+		                         RESTRICTED, 
+		                         SCANNING, 
+		                         IDENTIFIED, 
+		                         FINALISING, 
+		                         COMPLETED, 
+		                         CANCELLED};
 
 	private BorrowBookControl control;
 	private Scanner input;
-	private UI_STATE state;
+	private UiState state;  //changed variable name from UI_STATE to UiState
 
 	
 	public BorrowBookUI(BorrowBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
+		state = UiState.INITIALISED;  //changed variable name from UI_STATE to UiState
 		control.setUI(this);
 	}
 
@@ -44,8 +45,8 @@ public class BorrowBookUI {
 		System.out.println(object);
 	}
 	
-			
-	public void setState(UI_STATE state) {
+	//changed variable name from UI_STATE to UiState		
+	public void setState(UiState state) {
 		this.state = state;
 	}
 
