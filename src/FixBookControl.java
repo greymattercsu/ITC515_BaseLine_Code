@@ -10,25 +10,27 @@ public class FixBookControl {
 	
 	private FixBookUI ui;
 	private enum ControlState { INITIALISED, READY, FIXING }; //changed CONTROL_STATE to ControlState
-	private ControlState state;
+	private ControlState state; //changed CONTROL_STATE to ControlState
 	
-	private library library;
-	private book currentBook;
+	private Library library; //changed l in librart to L for Library since it is class
+	private Book currentBook; //changed b in book to B for Book since it is class
 
 
 	public FixBookControl() {
 		this.library = library.INSTANCE();
-		state = ControlState.INITIALISED;
+		state = ControlState.INITIALISED; //changed CONTROL_STATE to ControlState
 	}
 	
 	
 	public void setUI(FixBookUI ui) {
+
+		//changed CONTROL_STATE to ControlState
 		if (!state.equals(ControlState.INITIALISED)) {
 			throw new RuntimeException("FixBookControl: cannot call setUI except in INITIALISED state");
 		}	
 		this.ui = ui;
 		ui.setState(FixBookUI.UI_STATE.READY);
-		state = ControlState.READY;		
+		state = ControlState.READY;	 //changed CONTROL_STATE to ControlState	
 	}
 
 
@@ -48,11 +50,13 @@ public class FixBookControl {
 		}
 		ui.display(currentBook.toString());
 		ui.setState(FixBookUI.UI_STATE.FIXING);
-		state = ControlState.FIXING;		
+		state = ControlState.FIXING;  //changed CONTROL_STATE to ControlState		
 	}
 
 
 	public void fixBook(boolean fix) {
+
+		//changed CONTROL_STATE to ControlState
 		if (!state.equals(ControlState.FIXING)) {
 			throw new RuntimeException("FixBookControl: cannot call fixBook except in FIXING state");
 		}	
@@ -61,11 +65,13 @@ public class FixBookControl {
 		}
 		currentBook = null;
 		ui.setState(FixBookUI.UI_STATE.READY);
-		state = ControlState.READY;		
+		state = ControlState.READY; //changed CONTROL_STATE to ControlState		
 	}
 
 	
 	public void scanningComplete() {
+
+		//changed CONTROL_STATE to ControlState
 		if (!state.equals(ControlState.READY)) {
 			throw new RuntimeException("FixBookControl: cannot call scanningComplete except in READY state");
 		}	
