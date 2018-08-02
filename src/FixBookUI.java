@@ -13,9 +13,9 @@ public class FixBookUI {
 
 	//changed UI_STATE to UiState to match the naming convention
 	public static enum UiState { INITIALISED, 
-		                          READY, 
-		                          FIXING, 
-		                          COMPLETED };
+		                         READY, 
+		                         FIXING, 
+		                         COMPLETED };
 
 	private FixBookControl control;
 	private Scanner input;
@@ -44,13 +44,15 @@ public class FixBookUI {
 			switch (state) {
 			
 			case READY:
-				String bookStr = input("Scan Book (<enter> completes): ");
-				if (bookStr.length() == 0) {
+				String bookString = input("Scan Book (<enter> completes): "); //renamed bookStr to bookString
+				
+				//renamed bookStr to bookString
+				if (bookString.length() == 0) {
 					control.scanningComplete();
 				}
 				else {
 					try {
-						int bookId = Integer.valueOf(bookStr).intValue();
+						int bookId = Integer.valueOf(bookString).intValue(); //renamed bookStr to bookString
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {
@@ -60,9 +62,11 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String ans = input("Fix Book? (Y/N) : ");
+				String answer = input("Fix Book? (Y/N) : "); //renamed ans to answer
 				boolean fix = false;
-				if (ans.toUpperCase().equals("Y")) {
+
+				//renamed bookStr to bookString
+				if (answer.toUpperCase().equals("Y")) {
 					fix = true;
 				}
 				control.fixBook(fix);
