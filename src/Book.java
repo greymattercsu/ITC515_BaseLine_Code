@@ -52,10 +52,18 @@ public class Book implements Serializable {
 		return sb.toString();
 	}
 
+	/**
+	Getter for ID
+	@return ID
+	 */
 	public Integer ID() {
 		return ID;
 	}
 
+	/**
+	Getter for Title
+	@return title
+	 */
 	public String Title() {
 		return T;
 	}
