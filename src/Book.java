@@ -69,17 +69,23 @@ public class Book implements Serializable {
 	}
 
 
-	
+	/**
+	@return true if book is available
+	 */
 	public boolean Available() {
 		return state == STATE.AVAILABLE;
 	}
 
-	
+	/**
+	@return true if book is on loan
+	 */
 	public boolean On_loan() {
 		return state == STATE.ON_LOAN;
 	}
 
-	
+	/**
+	@return true if book is damaged
+	 */
 	public boolean Damaged() {
 		return state == STATE.DAMAGED;
 	}
