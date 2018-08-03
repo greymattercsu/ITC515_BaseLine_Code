@@ -72,7 +72,7 @@ public class Book implements Serializable {
 	/**
 	@return true if book is available
 	 */
-	public boolean Available() {
+	public boolean available() {
 		return state == STATE.AVAILABLE;
 	}
 
