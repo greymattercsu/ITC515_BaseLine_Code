@@ -86,7 +86,7 @@ public class Book implements Serializable {
 	/**
 	@return true if book is damaged
 	 */
-	public boolean Damaged() {
+	public boolean damaged() {
 		return state == STATE.DAMAGED;
 	}
 
