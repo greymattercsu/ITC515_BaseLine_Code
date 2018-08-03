@@ -90,7 +90,11 @@ public class Book implements Serializable {
 		return state == STATE.DAMAGED;
 	}
 
-	
+	/**
+	borrow method
+	change the state of book to on_loan if book was available else
+	Display the message why book can not be borrowed
+	 */
 	public void borrow() {
 		if (state.equals(STATE.AVAILABLE)) {
 			state = STATE.ON_LOAN;
@@ -101,7 +105,7 @@ public class Book implements Serializable {
 		
 	}
 
-
+	
 	public void Return(boolean DAMAGED) {
 		if (state.equals(STATE.ON_LOAN)) {
 			if (DAMAGED) {
