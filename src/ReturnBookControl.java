@@ -22,7 +22,14 @@ public class ReturnBookControl {
 		state = ControlState.INITIALISED;
 	}
 	
+	/* 
+	@method setUI
+	@param ReturnBookUI ui
 	
+	check if current state is initalised or not
+	if current controleState is not INITIALISED then throw RuntimeExecption
+	set controlSate and ui state to READY
+	 */	
 	public void setUI(ReturnBookUI ui) {
 		if (!state.equals(ControlState.INITIALISED)) {
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
@@ -32,7 +39,7 @@ public class ReturnBookControl {
 		state = ControlState.READY;		
 	}
 
-
+	
 	public void bookScanned(int bookId) {
 		if (!state.equals(ControlState.READY)) {
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
