@@ -39,7 +39,14 @@ public class ReturnBookControl {
 		state = ControlState.READY;		
 	}
 
-	
+	/** 
+	@method bookScanned
+	@param int bookId
+
+	Scanned the book and display appropriate message for invalid book, borrowed book that is not borrowed.
+	if Book is borrowed calculate the fine and display it.
+	finally set the state to inspecting
+	 */
 	public void bookScanned(int bookId) {
 		if (!state.equals(ControlState.READY)) {
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
