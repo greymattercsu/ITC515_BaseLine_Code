@@ -1,37 +1,24 @@
-/**
-@author:Saurav Pradhan
-@reviewer: Sanchay Gurung
-@Mediator: Ashish Shrestha
-@Scriber: Bijan Dhakal
-
-*/
-
 import java.util.Scanner;
 
 
 public class FixBookUI {
 
-	//changed UI_STATE to UiState to match the naming convention
-	public static enum UiState { INITIALISED, 
-		                         READY, 
-		                         FIXING, 
-		                         COMPLETED };
+	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
 
 	private FixBookControl control;
 	private Scanner input;
-	private UiState state; //changed UI_STATE to UiState 
+	private UI_STATE state;
 
 	
 	public FixBookUI(FixBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
-		state = UiState.INITIALISED; //changed UI_STATE to UiState
+		state = UI_STATE.INITIALISED;
 		control.setUI(this);
 	}
 
 
-	//changed UI_STATE to UiState
-	public void setState(UiState state) {
+	public void setState(UI_STATE state) {
 		this.state = state;
 	}
 
@@ -44,15 +31,13 @@ public class FixBookUI {
 			switch (state) {
 			
 			case READY:
-				String bookString = input("Scan Book (<enter> completes): "); //renamed bookStr to bookString
-				
-				//renamed bookStr to bookString
-				if (bookString.length() == 0) {
+				String bookStr = input("Scan Book (<enter> completes): ");
+				if (bookStr.length() == 0) {
 					control.scanningComplete();
 				}
 				else {
 					try {
-						int bookId = Integer.valueOf(bookString).intValue(); //renamed bookStr to bookString
+						int bookId = Integer.valueOf(bookStr).intValue();
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {
@@ -62,11 +47,9 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String answer = input("Fix Book? (Y/N) : "); //renamed ans to answer
+				String ans = input("Fix Book? (Y/N) : ");
 				boolean fix = false;
-
-				//renamed bookStr to bookString
-				if (answer.toUpperCase().equals("Y")) {
+				if (ans.toUpperCase().equals("Y")) {
 					fix = true;
 				}
 				control.fixBook(fix);
