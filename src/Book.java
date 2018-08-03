@@ -16,13 +16,12 @@ public class Book implements Serializable {
 	private String T;
 	private String A;
 	private String C;
-	private int ID;
-	
+	private int ID;	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
 	private STATE state;
 	
 	
-	public book(String author, String title, String callNo, int id) {
+	public Book(String author, String title, String callNo, int id) {
 		this.A = author;
 		this.T = title;
 		this.C = callNo;
