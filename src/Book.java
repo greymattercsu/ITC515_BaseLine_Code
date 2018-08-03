@@ -17,8 +17,8 @@ public class Book implements Serializable {
 	private String A;
 	private String C;
 	private int ID;	
-	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
-	private STATE state;
+	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
+	private State state;
 	
 	
 	/**
@@ -34,7 +34,7 @@ public class Book implements Serializable {
 		this.T = title;
 		this.C = callNo;
 		this.ID = id;
-		this.state = STATE.AVAILABLE;
+		this.state = State.AVAILABLE;
 	}
 	
 	/**
@@ -73,21 +73,21 @@ public class Book implements Serializable {
 	@return true if book is available
 	 */
 	public boolean available() {
-		return state == STATE.AVAILABLE;
+		return state == State.AVAILABLE;
 	}
 
 	/**
 	@return true if book is on loan
 	 */
 	public boolean on_loan() {
-		return state == STATE.ON_LOAN;
+		return state == State.ON_LOAN;
 	}
 
 	/**
 	@return true if book is damaged
 	 */
 	public boolean damaged() {
-		return state == STATE.DAMAGED;
+		return state == State.DAMAGED;
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class Book implements Serializable {
 	Display the message why book can not be borrowed
 	 */
 	public void borrow() {
-		if (state.equals(STATE.AVAILABLE)) {
-			state = STATE.ON_LOAN;
+		if (state.equals(State.AVAILABLE)) {
+			state = State.ON_LOAN;
 		}
 		else {
 			throw new RuntimeException(String.format("Book: cannot borrow while book is in state: %s", state));
@@ -112,12 +112,12 @@ public class Book implements Serializable {
 	if book cannot be return display message why.
 	 */
 	public void returnBook(boolean DAMAGED) {
-		if (state.equals(STATE.ON_LOAN)) {
+		if (state.equals(State.ON_LOAN)) {
 			if (DAMAGED) {
-				state = STATE.DAMAGED;
+				state = State.DAMAGED;
 			}
 			else {
-				state = STATE.AVAILABLE;
+				state = State.AVAILABLE;
 			}
 		}
 		else {
@@ -131,8 +131,8 @@ public class Book implements Serializable {
 	else display message why book cannot be repair
 	*/	
 	public void repair() {
-		if (state.equals(STATE.DAMAGED)) {
-			state = STATE.AVAILABLE;
+		if (state.equals(State.DAMAGED)) {
+			state = State.AVAILABLE;
 		}
 		else {
 			throw new RuntimeException(String.format("Book: cannot repair while book is in state: %s", state));
