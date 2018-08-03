@@ -79,7 +79,7 @@ public class Book implements Serializable {
 	/**
 	@return true if book is on loan
 	 */
-	public boolean On_loan() {
+	public boolean on_loan() {
 		return state == STATE.ON_LOAN;
 	}
 
