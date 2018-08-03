@@ -14,7 +14,9 @@ public class ReturnBookControl {
 	private library library;
 	private loan currentLoan;
 	
-
+	/* 
+	ReturnBookConrol construtor
+	 */
 	public ReturnBookControl() {
 		this.library = library.INSTANCE();
 		state = ControlState.INITIALISED;
