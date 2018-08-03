@@ -10,7 +10,7 @@
 import java.io.Serializable;
 
 
-@SuppressWarnings("serial")
+@SuppressWarnings("serial") //it informs the compiler that it should not produce the serialversionuid warning.
 public class book implements Serializable {
 	
 	private String T;
