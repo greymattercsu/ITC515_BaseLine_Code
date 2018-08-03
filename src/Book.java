@@ -111,9 +111,9 @@ public class Book implements Serializable {
 	if book was on loan chnage the book state to wither damaged or availiable
 	if book cannot be return display message why.
 	 */
-	public void returnBook(boolean DAMAGED) {
+	public void returnBook(boolean isDamaged) {
 		if (state.equals(State.ON_LOAN)) {
-			if (DAMAGED) {
+			if (isDamaged) {
 				state = State.DAMAGED;
 			}
 			else {
