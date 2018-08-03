@@ -37,6 +37,10 @@ public class Book implements Serializable {
 		this.state = STATE.AVAILABLE;
 	}
 	
+	/**
+	overrides toSting method
+	@return String description of Book
+	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Book: ").append(ID).append("\n")
