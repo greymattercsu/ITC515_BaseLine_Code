@@ -89,7 +89,12 @@ public class ReturnBookControl {
 		ui.setState(ReturnBookUI.UI_STATE.COMPLETED);		
 	}
 
+	/**
+	@method scanningComplete
 
+	if book is on inspection state then throw RuntimeExecption
+	set the state to reday 
+	*/
 	public void dischargeLoan(boolean isDamaged) {
 		if (!state.equals(ControlState.INSPECTING)) {
 			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
