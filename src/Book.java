@@ -105,7 +105,12 @@ public class Book implements Serializable {
 		
 	}
 
-	
+	/**
+	return book method
+	@param DAMAGED
+	if book was on loan chnage the book state to wither damaged or availiable
+	if book cannot be return display message why.
+	 */
 	public void returnBook(boolean DAMAGED) {
 		if (state.equals(STATE.ON_LOAN)) {
 			if (DAMAGED) {
