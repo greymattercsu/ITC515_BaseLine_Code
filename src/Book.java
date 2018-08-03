@@ -21,6 +21,14 @@ public class Book implements Serializable {
 	private STATE state;
 	
 	
+	/**
+	constructor initialization
+	
+	@param author
+	@param title
+	@param callNo
+	@param id
+	 */
 	public Book(String author, String title, String callNo, int id) {
 		this.A = author;
 		this.T = title;
