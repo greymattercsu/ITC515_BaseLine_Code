@@ -125,7 +125,11 @@ public class Book implements Serializable {
 		}		
 	}
 
-	
+	/**
+	repair method
+	if book was damaged changed it's state to available
+	else display message why book cannot be repair
+	*/	
 	public void repair() {
 		if (state.equals(STATE.DAMAGED)) {
 			state = STATE.AVAILABLE;
