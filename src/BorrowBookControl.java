@@ -1,74 +1,129 @@
+/**
+@author:Saurav Pradhan
+@reviewer: Sanchay Gurung
+@Mediator: Ashish Shrestha
+@Scriber: Bijan Dhakal
+
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 
+
+//this is the first iteration of our project.
 public class BorrowBookControl {
 	
 	private BorrowBookUI ui;
 	
-	private library L;
-	private member M;
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-	private CONTROL_STATE state;
+	private Library library; // renamed variable L to library and change the library to Library
+	private Member member; // renamed variable M to member and change the member to Member
+
+	//changed formating for easier code reading
+	//renamed the variable CONTROL_STATE to ControlState
+	private enum ControlState { INITIALISED, 
+		                        READY, 
+		                        RESTRICTED, 
+		                        SCANNING, 
+		                        IDENTIFIED, 
+		                        FINALISING, 
+		                        COMPLETED, 
+		                        CANCELLED };
+
+
+	private ControlState state; 
 	
 	private List<book> PENDING;
 	private List<loan> COMPLETED;
-	private book B;
+
+	private Book book; //renamed variable B to book and changed the b in book to Book
 	
-	
+	//renamed all the instances of L to Library
 	public BorrowBookControl() {
-		this.L = L.INSTANCE();
-		state = CONTROL_STATE.INITIALISED;
+
+
+		this.library = library.INSTANCE();//renamed variable L to Library
+		state = ControlState.INITIALISED;
+
 	}
 	
 
 	public void setUI(BorrowBookUI ui) {
-		if (!state.equals(CONTROL_STATE.INITIALISED)) 
+
+		//added curly braces
+		if (!state.equals(ControlState.INITIALISED)) {
 			throw new RuntimeException("BorrowBookControl: cannot call setUI except in INITIALISED state");
+		}
 			
 		this.ui = ui;
-		ui.setState(BorrowBookUI.UI_STATE.READY);
-		state = CONTROL_STATE.READY;		
+
+
+		ui.setState(BorrowBookUI.UiState.READY); //changed UI_STATE to UiState
+		state = ControlState.READY;		
 	}
 
 		
 	public void Swiped(int memberId) {
-		if (!state.equals(CONTROL_STATE.READY)) 
+
+		//added curly braces
+		if (!state.equals(ControlState.READY)) {
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
+		}
 			
-		M = L.getMember(memberId);
-		if (M == null) {
+		member = library.getMember(memberId); //renamed variable L to Library and changed M to member
+
+		//renamed M to member
+		if (member == null) {
 			ui.display("Invalid memberId");
 			return;
 		}
-		if (L.memberCanBorrow(M)) {
+
+		//renamed variable L to Library and renamed M to member
+		if (library.memberCanBorrow(member)) {
 			PENDING = new ArrayList<>();
-			ui.setState(BorrowBookUI.UI_STATE.SCANNING);
-			state = CONTROL_STATE.SCANNING; }
-		else 
-		{
+			ui.setState(BorrowBookUI.UiState.SCANNING); //changed UI_STATE to UiState
+			state = ControlState.SCANNING; }
+		else {
 			ui.display("Member cannot borrow at this time");
-			ui.setState(BorrowBookUI.UI_STATE.RESTRICTED); }}
+			ui.setState(BorrowBookUI.UiState.RESTRICTED); } //changed UI_STATE to UiState
+		} 
 	
 	
 	public void Scanned(int bookId) {
-		B = null;
-		if (!state.equals(CONTROL_STATE.SCANNING)) {
+		
+		book = null; //renamed variable B to book
+
+
+		if (!state.equals(ControlState.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
-		}	
-		B = L.Book(bookId);
-		if (B == null) {
+		}
+
+		//renamed variable L to Library and B to book
+		book = library.Book(bookId);
+
+
+		//renamed variable B to book
+		if (book == null) {
 			ui.display("Invalid bookId");
 			return;
 		}
-		if (!B.Available()) {
+
+
+		//renamed variable B to book
+		if (!book.Available()) {
 			ui.display("Book cannot be borrowed");
 			return;
 		}
-		PENDING.add(B);
-		for (book B : PENDING) {
-			ui.display(B.toString());
+
+
+		PENDING.add(book);//renamed variable B to book
+
+		//changed the b in book to Book
+		for (Book book : PENDING) {
+			ui.display(book.toString());
 		}
-		if (L.loansRemainingForMember(M) - PENDING.size() == 0) {
+
+		//renamed variable L to Library and renamed M to member
+		if (library.loansRemainingForMember(member) - PENDING.size() == 0) {
 			ui.display("Loan limit reached");
 			Complete();
 		}
@@ -76,41 +131,59 @@ public class BorrowBookControl {
 	
 	
 	public void Complete() {
+
+
 		if (PENDING.size() == 0) {
 			cancel();
 		}
 		else {
 			ui.display("\nFinal Borrowing List");
-			for (book b : PENDING) {
-				ui.display(b.toString());
+			for (book book : PENDING) {
+				ui.display(book.toString()); //renamed variable B to book
 			}
+
+
 			COMPLETED = new ArrayList<loan>();
-			ui.setState(BorrowBookUI.UI_STATE.FINALISING);
-			state = CONTROL_STATE.FINALISING;
+			ui.setState(BorrowBookUI.UiState.FINALISING); //changed UI_STATE to UiState
+			state = ControlState.FINALISING;
 		}
 	}
 
 
 	public void commitLoans() {
-		if (!state.equals(CONTROL_STATE.FINALISING)) {
+
+
+		if (!state.equals(ControlState.FINALISING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call commitLoans except in FINALISING state");
-		}	
-		for (book b : PENDING) {
-			loan loan = L.issueLoan(b, M);
+		}
+
+
+		//renamed variable B to book and changed the b in book to Book
+		for (Book book : PENDING) {
+
+			//renamed variable L to Library, renamed M to member and renamed variable B to book
+			loan loan = library.issueLoan(book, member); //renamed variable B to book
 			COMPLETED.add(loan);			
 		}
+
+
 		ui.display("Completed Loan Slip");
-		for (loan loan : COMPLETED) {
+
+		//changed the l in loan to Loan
+		for (Loan loan : COMPLETED) {
 			ui.display(loan.toString());
 		}
-		ui.setState(BorrowBookUI.UI_STATE.COMPLETED);
-		state = CONTROL_STATE.COMPLETED;
+
+
+		ui.setState(BorrowBookUI.UiState.COMPLETED); //changed UI_STATE to UiState
+		state = ControlState.COMPLETED;
 	}
 
 	
 	public void cancel() {
-		ui.setState(BorrowBookUI.UI_STATE.CANCELLED);
-		state = CONTROL_STATE.CANCELLED;
+
+		ui.setState(BorrowBookUI.UiState.CANCELLED); //changed UI_STATE to UiState
+		state = ControlState.CANCELLED;
 	}
 	
 	
