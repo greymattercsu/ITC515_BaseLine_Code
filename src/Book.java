@@ -64,7 +64,7 @@ public class Book implements Serializable {
 	Getter for Title
 	@return title
 	 */
-	public String Title() {
+	public String title() {
 		return T;
 	}
 
