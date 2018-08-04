@@ -11,8 +11,8 @@ public class ReturnBookControl {
 	private enum ControlState { INITIALISED, READY, INSPECTING };
 	private ControlState state;
 	
-	private library library;
-	private loan currentLoan;
+	private Library library;
+	private Loan currentLoan;
 	
 	/* 
 	ReturnBookConrol construtor
