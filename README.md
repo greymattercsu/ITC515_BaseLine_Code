@@ -3,7 +3,8 @@
 # ITC 515
 ***
 
-This contain the baseline code provide for student of professional programming practice of 201860 session.
+This contains the baseline code for the student of professional programming practice during 201860 sessions.
+to re
 ***
 This is the development feature branch for Bijan Dhakal.
 
