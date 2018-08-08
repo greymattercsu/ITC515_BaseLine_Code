@@ -41,7 +41,7 @@ public class Loan implements Serializable { 	//changed class name loan to Loan
 
 	
 	public boolean isOverDue() {
-		return state == LOAN_STATE.OVER_DUE;
+		return state == loanState.OVER_DUE;				//change LOAN_STATE to loanState
 	}
 
 	
