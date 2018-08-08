@@ -93,8 +93,8 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 	
 	
-	private int nextBID() {
-		return BID++;
+	private int nextBID() {			
+		return bid++;			//change attribute name BID to bid
 	}
 
 	
