@@ -145,9 +145,10 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 	
-	public book Book(int bookId) {
-		if (catalog.containsKey(bookId)) 
+	public Book book(int bookId) {				//change type name book to Book and method name Book() to book()
+		if (catalog.containsKey(bookId)) {		//added parentheses
 			return catalog.get(bookId);		
+		}
 		return null;
 	}
 
