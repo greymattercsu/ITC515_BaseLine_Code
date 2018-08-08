@@ -137,9 +137,10 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 	
-	public member getMember(int memberId) {
-		if (members.containsKey(memberId)) 
+	public Member getMember(int memberId) {			//change member to Member
+		if (members.containsKey(memberId)) {		//added parentheses
 			return members.get(memberId);
+		}
 		return null;
 	}
 
