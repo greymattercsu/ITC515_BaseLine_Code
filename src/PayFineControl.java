@@ -17,8 +17,8 @@ public class PayFineControl {
 
 
 	public PayFineControl() {
-		this.library = library.INSTANCE();
-		state = CONTROL_STATE.INITIALISED;
+		this.library = library.instance();	//changd INSTANCE() to instance()
+		state = controlState.INITIALISED;	//changed CONTROL_STATE to controlState
 	}
 	
 	
