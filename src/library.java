@@ -190,7 +190,7 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 	
 	
-	public loan getLoanByBookId(int bookId) {
+	public Loan getLoanByBookId(int bookId) {			//change return type loan to Loan,
 		if (currentLoans.containsKey(bookId)) {
 			return currentLoans.get(bookId);
 		}
