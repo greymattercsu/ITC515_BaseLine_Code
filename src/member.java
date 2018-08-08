@@ -23,7 +23,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 	private int id;  //renamed variable named ID to id
 	private double fines;  //renamed variable named FINES to fines
 	
-	private Map<Integer, loan> LNS;
+	private Map<Integer, loan> loans;  //renamed variable LNS to loans
 
 	
 	public member(String lastName, String firstName, String email, int phoneNo, int id) {
@@ -33,7 +33,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 		this.pNum = phoneNo;
 		this.id = id;
 		
-		this.LNS = new HashMap<>();
+		this.loans = new HashMap<>();
 	}
 
 	
@@ -47,7 +47,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 		  .append(String.format("  Fines Owed :  $%.2f", fines))
 		  .append("\n");
 		
-		for (loan loan : LNS.values()) {
+		for (loan loan : loans.values()) {
 			sb.append(loan).append("\n");
 		}		  
 		return sb.toString();
@@ -60,12 +60,12 @@ public class Member implements Serializable {  //capitalising the first letter o
 
 	
 	public List<loan> getLoans() {
-		return new ArrayList<loan>(LNS.values());
+		return new ArrayList<loan>(loans.values());
 	}
 
 	
 	public int getNumberOfCurrentLoans() {
-		return LNS.size();
+		return loans.size();
 	}
 
 	
@@ -76,7 +76,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 	
 	public void takeOutLoan(loan loan) {
 		if (!LNS.containsKey(loan.getId())) {
-			LNS.put(loan.getId(), loan);
+			loans.put(loan.getId(), loan);
 		}
 		else {
 			throw new RuntimeException("Duplicate loan added to member");
@@ -115,8 +115,8 @@ public class Member implements Serializable {  //capitalising the first letter o
 
 
 	public void dischargeLoan(loan loan) {
-		if (LNS.containsKey(loan.getId())) {
-			LNS.remove(loan.getId());
+		if (loans.containsKey(loan.getId())) {
+			loans.remove(loan.getId());
 		}
 		else {
 			throw new RuntimeException("No such loan held by member");
