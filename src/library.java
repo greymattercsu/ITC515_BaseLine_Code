@@ -83,8 +83,8 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 	
-	public int BookID() {
-		return BID;
+	public int bookID() {		//change method name BookId to bookId
+		return bid;				//change variable BID to bid
 	}
 	
 	
