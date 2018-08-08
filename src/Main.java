@@ -1,3 +1,12 @@
+
+/*
+@author:Ashish Shrestha
+@reviewer: Bijan Dhakal
+@Mediator: Saurav Pradhan
+@Scriber: Sanchay Gurung
+
+*/
+
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
