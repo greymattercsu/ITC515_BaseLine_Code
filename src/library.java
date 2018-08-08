@@ -179,9 +179,9 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 	
-	public loan issueLoan(book book, member member) {
+	public Loan issueLoan(Book book, Member member) {			//change return type loan to Loan, argument types book and member to Book and Member
 		Date dueDate = Calendar.getInstance().getDueDate(LOAN_PERIOD);
-		loan loan = new loan(nextLID(), book, member, dueDate);
+		Loan loan = new Loan(nextLID(), book, member, dueDate);		//change loan to Loan
 		member.takeOutLoan(loan);
 		book.Borrow();
 		loans.put(loan.getId(), loan);
