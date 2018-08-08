@@ -1,9 +1,18 @@
+
+/**
+@author:Bijan Dhakal
+@reviewer: Saurav Pradhan
+@Mediator: Sanchay Gurung
+@Scriber: Ashish Shrestha
+
+*/
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @SuppressWarnings("serial")
-public class loan implements Serializable {
+public class Loan implements Serializable {
 	
 	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
 	
