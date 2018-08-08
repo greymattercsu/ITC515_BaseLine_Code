@@ -88,8 +88,8 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 	
 	
-	public int MemberID() {
-		return MID;
+	public int memberID() {		//change method name MemberID to memberID
+		return mid;				//change attribute name MID to mid
 	}
 	
 	
