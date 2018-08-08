@@ -33,7 +33,7 @@ public class PayFineControl {
 
 
 	public void cardSwiped(int memberId) {
-		if (!state.equals(CONTROL_STATE.READY)) {
+		if (!state.equals(controlState.READY)) {		//changed CONTROL_STATE to controlState
 			throw new RuntimeException("PayFineControl: cannot call cardSwiped except in READY state");
 		}	
 		member = library.getMember(memberId);
@@ -43,14 +43,14 @@ public class PayFineControl {
 			return;
 		}
 		ui.display(member.toString());
-		ui.setState(PayFineUI.UI_STATE.PAYING);
-		state = CONTROL_STATE.PAYING;
+		ui.setState(PayFineUI.uiState.PAYING);		//changed UI_STATE to uiState	
+		state = controlState.PAYING;				//changed CONTROL_STATE to controlState
 	}
 	
 	
 	public void cancel() {
 		ui.setState(PayFineUI.UI_STATE.CANCELLED);
-		state = CONTROL_STATE.CANCELLED;
+		state = controlState.CANCELLED;
 	}
 
 
