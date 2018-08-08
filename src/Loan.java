@@ -51,7 +51,7 @@ public class Loan implements Serializable { 	//changed class name loan to Loan
 
 
 	public Date getDueDate() {
-		return D;
+		return date;						//change D to date
 	}
 	
 	
