@@ -70,8 +70,8 @@ public class Loan implements Serializable { 	//changed class name loan to Loan
 	}
 
 
-	public member Member() {
-		return M;
+	public Member member() {	//change return type member to Member and method name Member to member
+		return member;			//change M to member
 	}
 
 
