@@ -225,7 +225,7 @@ public class Library implements Serializable {		//changed class name library to 
 
 
 	public void checkCurrentLoans() {
-		for (loan loan : currentLoans.values()) {
+		for (Loan loan : currentLoans.values()) {		//change type loan to Loan
 			loan.checkOverDue();
 		}		
 	}
