@@ -18,7 +18,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 
 	private String lName;  //renamed variable LN to lName
 	private String fName;  //renamed variable name FN to fName
-	private String EM;
+	private String email;  //renamed variable EM to email
 	private int PN;
 	private int ID;
 	private double FINES;
@@ -29,7 +29,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 	public member(String lastName, String firstName, String email, int phoneNo, int id) {
 		this.lName = lastName;
 		this.fName = firstName;
-		this.EM = email;
+		this.email = email;
 		this.PN = phoneNo;
 		this.ID = id;
 		
@@ -41,7 +41,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 		StringBuilder sb = new StringBuilder();
 		sb.append("Member:  ").append(ID).append("\n")
 		  .append("  Name:  ").append(lName).append(", ").append(fName).append("\n")
-		  .append("  Email: ").append(EM).append("\n")
+		  .append("  Email: ").append(email).append("\n")
 		  .append("  Phone: ").append(PN)
 		  .append("\n")
 		  .append(String.format("  Fines Owed :  $%.2f", FINES))
