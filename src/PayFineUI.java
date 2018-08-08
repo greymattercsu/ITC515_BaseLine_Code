@@ -20,7 +20,7 @@ public class PayFineUI {
 	public PayFineUI(PayFineControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
+		state = uiState.INITIALISED;		//changed UI_STATE to uiState
 		control.setUI(this);
 	}
 	
