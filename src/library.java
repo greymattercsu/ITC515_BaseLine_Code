@@ -208,13 +208,11 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 
-	public void dischargeLoan(loan currentLoan, boolean isDamaged) {
-		member member = currentLoan.Member();
-		book book  = currentLoan.Book();
-		
+	public void dischargeLoan(Loan currentLoan, boolean isDamaged) {	//change argument types loan to Loan
+		Member member = currentLoan.Member();				//type member to Member
+		Book book  = currentLoan.Book();					//type book to Book		
 		double overDueFine = calculateOverDueFine(currentLoan);
-		member.addFine(overDueFine);	
-		
+		member.addFine(overDueFine);			
 		member.dischargeLoan(currentLoan);
 		book.Return(isDamaged);
 		if (isDamaged) {
