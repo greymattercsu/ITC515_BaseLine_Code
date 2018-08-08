@@ -17,7 +17,7 @@ import java.util.Map;
 public class Member implements Serializable {  //capitalising the first letter of class member
 
 	private String lName;  //renamed variable LN to lName
-	private String FN;
+	private String fName;  //renamed variable name FN to fName
 	private String EM;
 	private int PN;
 	private int ID;
@@ -28,7 +28,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 	
 	public member(String lastName, String firstName, String email, int phoneNo, int id) {
 		this.lName = lastName;
-		this.FN = firstName;
+		this.fName = firstName;
 		this.EM = email;
 		this.PN = phoneNo;
 		this.ID = id;
@@ -40,7 +40,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Member:  ").append(ID).append("\n")
-		  .append("  Name:  ").append(lName).append(", ").append(FN).append("\n")
+		  .append("  Name:  ").append(lName).append(", ").append(fName).append("\n")
 		  .append("  Email: ").append(EM).append("\n")
 		  .append("  Phone: ").append(PN)
 		  .append("\n")
@@ -90,7 +90,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 
 	
 	public String getFirstName() {
-		return FN;
+		return fName;
 	}
 
 
