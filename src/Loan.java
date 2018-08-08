@@ -75,8 +75,8 @@ public class Loan implements Serializable { 	//changed class name loan to Loan
 	}
 
 
-	public book Book() {
-		return B;
+	public Book book() {			//change return type book to Book and method name Book to book
+		return book;				//change B to book
 	}
 
 
