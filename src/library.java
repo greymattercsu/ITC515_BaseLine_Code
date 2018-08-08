@@ -109,17 +109,17 @@ public class Library implements Serializable {		//changed class name library to 
 
 	
 	public List<Member> members() {		//change List<member> to List<Member> and Members() to members()
-		return new ArrayList<Member>(members.values()); 
+		return new ArrayList<Member>(members.values()); //change ArrayList<member>() to ArrayList<Member>()
 	}
 
 
 	public List<Book> books() {			//change List<book> to List<Book> and Books() to books()
-		return new ArrayList<Book>(catalog.values()); 
+		return new ArrayList<Book>(catalog.values()); //ArrayList<book>() to ArrayList<Book>()
 	}
 
 
-	public List<loan> CurrentLoans() {
-		return new ArrayList<loan>(currentLoans.values());
+	public List<Loan> currentLoans() {		//change List<loan> to List<Loan> and CurrentLoans() to currentLoans()
+		return new ArrayList<Loan>(currentLoans.values());		//ArrayList<loan>() to ArrayList<Loan>()
 	}
 
 
