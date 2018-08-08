@@ -14,7 +14,7 @@ import java.lang.StringBuilder; //added package to use StringBuilder() method
 
 public class Main {
 	
-	private static Scanner IN;
+	private static Scanner scan; //changed variable IN to scan
 	private static library LIB;
 	private static String MENU;
 	private static Calendar CAL;
@@ -49,7 +49,7 @@ public class Main {
 
 	public static void main(String[] args) {		
 		try {			
-			IN = new Scanner(System.in);
+			scan = new Scanner(System.in); //changed variable IN to scan
 			LIB = library.INSTANCE();
 			CAL = Calendar.getInstance();
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
@@ -219,7 +219,7 @@ public class Main {
 
 	private static String input(String prompt) {
 		System.out.print(prompt);
-		return IN.nextLine();
+		return scan.nextLine(); //changed variable IN to scan
 	}
 	
 	
