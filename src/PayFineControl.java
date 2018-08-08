@@ -23,12 +23,12 @@ public class PayFineControl {
 	
 	
 	public void setUI(PayFineUI ui) {
-		if (!state.equals(CONTROL_STATE.INITIALISED)) {
+		if (!state.equals(controlState.INITIALISED)) {		//changed CONTROL_STATE to controlState
 			throw new RuntimeException("PayFineControl: cannot call setUI except in INITIALISED state");
 		}	
 		this.ui = ui;
-		ui.setState(PayFineUI.UI_STATE.READY);
-		state = CONTROL_STATE.READY;		
+		ui.setState(PayFineUI.uiState.READY);		//changed UI_STATE to uiState
+		state = controlState.READY;					//changed CONTROL_STATE to controlState
 	}
 
 
