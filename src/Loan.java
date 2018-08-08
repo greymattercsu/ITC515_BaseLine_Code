@@ -80,8 +80,8 @@ public class Loan implements Serializable { 	//changed class name loan to Loan
 	}
 
 
-	public void Loan() {
-		state = LOAN_STATE.DISCHARGED;		
+	public void loan() { 						//change method name Loan to loan
+		state = loanState.DISCHARGED;			//change LOAN_STATE to loanState
 	}
 
 }
