@@ -47,21 +47,20 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 	
-	public static synchronized library INSTANCE() {		
+	public static synchronized Library instance() {			//change library to Library and INSTANCE to instance
 		if (self == null) {
 			Path path = Paths.get(LIBRARY_FILE);			
 			if (Files.exists(path)) {	
-				try (ObjectInputStream lof = new ObjectInputStream(new FileInputStream(LIBRARY_FILE));) {
-			    
-					self = (library) lof.readObject();
+				try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(LIBRARY_FILE));) {	//change iof ot inputStream		    
+					self = (Library) inputStream.readObject();		//change library to Library
 					Calendar.getInstance().setDate(self.loadDate);
-					lof.close();
+					inputStream.close();
 				}
 				catch (Exception e) {
 					throw new RuntimeException(e);
 				}
 			}
-			else self = new library();
+			else self = new Library();		//change library to Library
 		}
 		return self;
 	}
