@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class Member implements Serializable {  //changing the name of class member to Member
+public class member implements Serializable {
 
 	private String LN;
 	private String FN;
