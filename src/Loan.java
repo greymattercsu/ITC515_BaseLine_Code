@@ -45,8 +45,8 @@ public class Loan implements Serializable { 	//changed class name loan to Loan
 	}
 
 	
-	public Integer getId() {
-		return ID;
+	public int getId() {					//change return type Integer to int
+		return id;							//change ID to id
 	}
 
 
