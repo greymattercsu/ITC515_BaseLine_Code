@@ -22,10 +22,10 @@ public class Library implements Serializable {		//changed class name library to 
 	private static final double MAX_FINES_OWED = 5.0;
 	private static final double DAMAGE_FEE = 2.0;
 	
-	private static library self;
-	private int BID;
-	private int MID;
-	private int LID;
+	private static Library self;	//change type name library to Library
+	private int bid;				//change private variable name BID to bid
+	private int mid;				//change private variable name MID to mid
+	private int lid;				//change private variable name LID to lid
 	private Date loadDate;
 	
 	private Map<Integer, book> catalog;
