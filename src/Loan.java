@@ -12,15 +12,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @SuppressWarnings("serial")
-public class Loan implements Serializable {
+public class Loan implements Serializable { 	//changed class name loan to Loan
 	
-	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
+	public static enum loanState { CURRENT, OVER_DUE, DISCHARGED };		//change LOAN_STATE to loanState
 	
-	private int ID;
-	private book B;
-	private member M;
-	private Date D;
-	private LOAN_STATE state;
+	private int id;				//changed ID to id
+	private Book book;			//changed type book to Book and and attribute name B to book 
+	private Member member;		//changed type member to Member and and attribute name M to member 
+	private Date date;			//changed attribute name D to date 
+	private loanState state;	//changed attribute type LOAN_STATE to loanState
 
 	
 	public loan(int loanId, book book, member member, Date dueDate) {
