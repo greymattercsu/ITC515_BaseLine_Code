@@ -55,7 +55,7 @@ public class PayFineControl {
 
 
 	public double payFine(double amount) {
-		if (!state.equals(CONTROL_STATE.PAYING)) {
+		if (!state.equals(controlState.PAYING)) {		//changed CONTROL_STATE to controlState
 			throw new RuntimeException("PayFineControl: cannot call payFine except in PAYING state");
 		}	
 		double change = member.payFine(amount);
@@ -63,8 +63,8 @@ public class PayFineControl {
 			ui.display(String.format("Change: $%.2f", change));
 		}
 		ui.display(member.toString());
-		ui.setState(PayFineUI.UI_STATE.COMPLETED);
-		state = CONTROL_STATE.COMPLETED;
+		ui.setState(PayFineUI.uiState.COMPLETED);		//changed UI_STATE to uiState	
+		state = controlState.COMPLETED;					//changed CONTROL_STATE to controlState
 		return change;
 	}
 	
