@@ -130,8 +130,8 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 	
-	public book Add_book(String a, String t, String c) {		
-		book b = new book(a, t, c, nextBID());
+	public Book addBook(String a, String t, String c) {		//change return type book to Book and method name Add_book() tp addBook()
+		Book b = new Book(a, t, c, nextBID());		//change book to Book
 		catalog.put(b.ID(), b);		
 		return b;
 	}
