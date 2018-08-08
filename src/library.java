@@ -231,15 +231,14 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 
-	public void repairBook(book currentBook) {
+	public void repairBook(Book currentBook) {				//change argument type book to Book
 		if (damagedBooks.containsKey(currentBook.ID())) {
 			currentBook.Repair();
 			damagedBooks.remove(currentBook.ID());
 		}
 		else {
 			throw new RuntimeException("Library: repairBook: book is not damaged");
-		}
-		
+		}		
 	}
 	
 	
