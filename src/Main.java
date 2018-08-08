@@ -17,7 +17,7 @@ public class Main {
 	private static Scanner scan; //changed variable IN to scan
 	private static Library library; //renamed library to Library and variable LIB to library
 	private static String menu; //renamed variable MENU to menu
-	private static Calendar CAL;
+	private static Calendar calendar;  //changed variable name CAL to calendar
 	private static SimpleDateFormat SDF;
 	
 	
@@ -51,7 +51,7 @@ public class Main {
 		try {			
 			scan = new Scanner(System.in); //changed variable IN to scan
 			library = Library.INSTANCE(); //renamed library to Library and variable LIB to library
-			CAL = Calendar.getInstance();
+			calendar = Calendar.getInstance(); //changed variable name CAL to calendar
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
 	
 			for (member m : library.Members()) {  //renamed variable LIB to library
@@ -68,7 +68,7 @@ public class Main {
 			
 			while (!e) {
 				
-				output("\n" + SDF.format(CAL.Date()));
+				output("\n" + SDF.format(calendar.Date()));  //changed variable name CAL to calendar
 				String c = input(menu);  //renamed variable MENU to menu
 				
 				switch (c.toUpperCase()) {
@@ -180,7 +180,7 @@ public class Main {
 	private static void incrementDate() {
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
-			CAL.incrementDate(days);
+			calendar.incrementDate(days);  //changed variable name CAL to calendar
 			library.checkCurrentLoans();  //renamed variable LIB to library
 			output(SDF.format(CAL.Date()));
 			
