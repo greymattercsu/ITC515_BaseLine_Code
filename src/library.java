@@ -108,8 +108,8 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 	
-	public List<member> Members() {		
-		return new ArrayList<member>(members.values()); 
+	public List<Member> members() {		//change List<member> to List<Member> and Members() to members()
+		return new ArrayList<Member>(members.values()); 
 	}
 
 
