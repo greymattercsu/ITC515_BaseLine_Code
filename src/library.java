@@ -99,7 +99,7 @@ public class Library implements Serializable {		//changed class name library to 
 
 	
 	private int nextMID() {
-		return MID++;
+		return mid++;			//change attribute name MID to mid
 	}
 
 	
