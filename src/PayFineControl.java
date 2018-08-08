@@ -49,8 +49,8 @@ public class PayFineControl {
 	
 	
 	public void cancel() {
-		ui.setState(PayFineUI.UI_STATE.CANCELLED);
-		state = controlState.CANCELLED;
+		ui.setState(PayFineUI.uiState.CANCELLED);		//changed UI_STATE to uiState	
+		state = controlState.CANCELLED;					//changed CONTROL_STATE to controlState
 	}
 
 
