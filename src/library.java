@@ -35,15 +35,15 @@ public class Library implements Serializable {		//changed class name library to 
 	private Map<Integer, Book> damagedBooks;	//change book to Book
 	
 
-	private library() {
+	private Library() {		//change constructer name library to Library
 		catalog = new HashMap<>();
 		members = new HashMap<>();
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
 		damagedBooks = new HashMap<>();
-		BID = 1;
-		MID = 1;		
-		LID = 1;		
+		bid = 1;			// change BID to bid
+		mid = 1;			//change MID to mid
+		lid = 1;			//change LID to lid
 	}
 
 	
