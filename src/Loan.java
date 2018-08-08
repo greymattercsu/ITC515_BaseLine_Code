@@ -56,17 +56,17 @@ public class Loan implements Serializable { 	//changed class name loan to Loan
 	
 	
 	public String toString() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");		//change variable name sdf to simpleDateFormat
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("Loan:  ").append(ID).append("\n")
-		  .append("  Borrower ").append(M.getId()).append(" : ")
-		  .append(M.getLastName()).append(", ").append(M.getFirstName()).append("\n")
-		  .append("  Book ").append(B.ID()).append(" : " )
-		  .append(B.Title()).append("\n")
-		  .append("  DueDate: ").append(sdf.format(D)).append("\n")
+		StringBuilder stringBuilder = new StringBuilder();				//change sb to stringBuilder
+		stringBuilder.append("Loan:  ").append(id).append("\n")			//change sb to stringBuilder and ID to id
+		  .append("  Borrower ").append(member.getId()).append(" : ")	//change M to member
+		  .append(member.getLastName()).append(", ").append(member.getFirstName()).append("\n")
+		  .append("  Book ").append(book.ID()).append(" : " )			//change B to book
+		  .append(book.Title()).append("\n")
+		  .append("  DueDate: ").append(simpleDateFormat.format(date)).append("\n")		//change sdf to simpleDateFormat and D to date
 		  .append("  State: ").append(state);		
-		return sb.toString();
+		return stringBuilder.toString();
 	}
 
 
