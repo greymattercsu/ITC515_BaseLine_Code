@@ -23,12 +23,12 @@ public class Loan implements Serializable { 	//changed class name loan to Loan
 	private loanState state;	//changed attribute type LOAN_STATE to loanState
 
 	
-	public loan(int loanId, book book, member member, Date dueDate) {
-		this.ID = loanId;
-		this.B = book;
-		this.M = member;
-		this.D = dueDate;
-		this.state = LOAN_STATE.CURRENT;
+	public Loan(int loanId, Book book, Member member, Date dueDate) {	//change constructor loan to Loan and argument types book and member to Loan and Member
+		this.id = loanId;				//change ID to id
+		this.book = book;				//this.B to this.book
+		this.member = member;			//this.M to this.member
+		this.date = dueDate;			//this.D to this.date
+		this.state = loanState.CURRENT;	//LOAN_STATE.CURRENT to loanState.CURRENT
 	}
 
 	
