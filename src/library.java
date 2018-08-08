@@ -123,8 +123,8 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 
-	public member Add_mem(String lastName, String firstName, String email, int phoneNo) {		
-		member member = new member(lastName, firstName, email, phoneNo, nextMID());
+	public Member addMember(String lastName, String firstName, String email, int phoneNo) {		//change type member to Member, Add_mem() to addMember()	
+		Member member = new Member(lastName, firstName, email, phoneNo, nextMID());			//change type member to Member and parameterized constructor new member() to new Member()
 		members.put(member.getId(), member);		
 		return member;
 	}
