@@ -9,6 +9,7 @@
 
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
+import java.lang.StringBuilder; //added package to use StringBuilder() method
 
 
 public class Main {
