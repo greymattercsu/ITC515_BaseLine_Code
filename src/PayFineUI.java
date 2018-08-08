@@ -10,12 +10,11 @@ import java.util.Scanner;
 
 public class PayFineUI {
 
-
-	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
+	public static enum uiState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };		//changed enum name UI_STATE to uiState
 
 	private PayFineControl control;
 	private Scanner input;
-	private UI_STATE state;
+	private uiState state;					//changed type UI_STATE to uiState
 
 	
 	public PayFineUI(PayFineControl control) {
