@@ -28,11 +28,11 @@ public class Library implements Serializable {		//changed class name library to 
 	private int lid;				//change private variable name LID to lid
 	private Date loadDate;
 	
-	private Map<Integer, book> catalog;
-	private Map<Integer, member> members;
-	private Map<Integer, loan> loans;
-	private Map<Integer, loan> currentLoans;
-	private Map<Integer, book> damagedBooks;
+	private Map<Integer, Book> catalog;			//change book to Book
+	private Map<Integer, Member> members;		//change member to Member
+	private Map<Integer, Loan> loans;			//change loan to Loan
+	private Map<Integer, Loan> currentLoans;	//change loan to Loan
+	private Map<Integer, Book> damagedBooks;	//change book to Book
 	
 
 	private library() {
