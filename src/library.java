@@ -158,17 +158,18 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 	
-	public boolean memberCanBorrow(member member) {		
-		if (member.getNumberOfCurrentLoans() == LOAN_LIMIT ) 
+	public boolean memberCanBorrow(Member member) {				//change argument type member to Member		
+		if (member.getNumberOfCurrentLoans() == LOAN_LIMIT ){	//added parenthesis 
 			return false;
-				
-		if (member.getFinesOwed() >= MAX_FINES_OWED) 
+		}				
+		if (member.getFinesOwed() >= MAX_FINES_OWED) {			//added parenthesis 
 			return false;
-				
-		for (loan loan : member.getLoans()) 
-			if (loan.isOverDue()) 
+		}
+		for (Loan loan : member.getLoans()) {					//added parenthesis 
+			if (loan.isOverDue()) {								//added parenthesis 
 				return false;
-			
+			}
+		}			
 		return true;
 	}
 
