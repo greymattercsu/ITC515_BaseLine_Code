@@ -174,7 +174,7 @@ public class Library implements Serializable {		//changed class name library to 
 	}
 
 	
-	public int loansRemainingForMember(member member) {		
+	public int loansRemainingForMember(Member member) {			//change argument type member to Member	
 		return LOAN_LIMIT - member.getNumberOfCurrentLoans();
 	}
 
