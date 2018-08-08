@@ -1,3 +1,11 @@
+/**
+@author:Sanchay Gurung
+@reviewer: Ashish Shrestha
+@Mediator: Bijan Dhakal
+@Scriber: Saurav Pradhan
+
+*/
+
 public class PayFineControl {
 	
 	private PayFineUI ui;
