@@ -16,7 +16,7 @@ public class Main {
 	
 	private static Scanner scan; //changed variable IN to scan
 	private static Library library; //renamed library to Library and variable LIB to library
-	private static String MENU;
+	private static String menu; //renamed variable MENU to menu
 	private static Calendar CAL;
 	private static SimpleDateFormat SDF;
 	
@@ -62,14 +62,14 @@ public class Main {
 				output(b);
 			}
 						
-			MENU = Get_menu();
+			menu = Get_menu();  //renamed variable MENU to menu
 			
 			boolean e = false;
 			
 			while (!e) {
 				
 				output("\n" + SDF.format(CAL.Date()));
-				String c = input(MENU);
+				String c = input(menu);  //renamed variable MENU to menu
 				
 				switch (c.toUpperCase()) {
 				
