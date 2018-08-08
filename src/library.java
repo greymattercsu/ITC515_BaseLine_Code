@@ -104,7 +104,7 @@ public class Library implements Serializable {		//changed class name library to 
 
 	
 	private int nextLID() {
-		return LID++;
+		return lid++;			//change attribute name LID to lid
 	}
 
 	
