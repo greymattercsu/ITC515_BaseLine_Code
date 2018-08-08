@@ -1,9 +1,8 @@
-
 /**
-@author:Bijan Dhakal
-@reviewer: Saurav Pradhan
-@Mediator: Sanchay Gurung
-@Scriber: Ashish Shrestha
+@author:Sanchay Gurung
+@reviewer: Ashish Shrestha
+@Mediator: Bijan Dhakal
+@Scriber: Saurav Pradhan
 
 */
 
