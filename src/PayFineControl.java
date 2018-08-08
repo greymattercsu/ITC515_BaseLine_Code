@@ -13,7 +13,7 @@ public class PayFineControl {
 	private controlState state;							//changed type CONTROL_STATE to controlState
 	
 	private Library library;				//changed attribute type library to Library
-	private Member member;;					//changed attribute type member to Member
+	private Member member;					//changed attribute type member to Member
 
 
 	public PayFineControl() {
