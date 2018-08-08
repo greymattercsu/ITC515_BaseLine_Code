@@ -25,7 +25,7 @@ public class PayFineUI {
 	}
 	
 	
-	public void setState(UI_STATE state) {
+	public void setState(uiState state) {		//changed argument type UI_STATE to uiState
 		this.state = state;
 	}
 
