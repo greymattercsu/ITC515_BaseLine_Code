@@ -54,24 +54,24 @@ public class Main {
 			calendar = Calendar.getInstance(); //changed variable name CAL to calendar
 			dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //renamed variable SDF to dateFormat
 	
-			for (member m : library.Members()) {  //renamed variable LIB to library
-				output(m);
+			for (Member memb : library.Members()) {  //renamed variable m to memb and object declared member to Member
+				output(memb);
 			}
 			output(" ");
-			for (book b : library.Books()) {  //renamed variable LIB to library
-				output(b);
+			for (Book bk : library.Books()) {  //renamed variable b to bk and object declared book to Book
+				output(bk);
 			}
 						
 			menu = getMenu();  //renamed variable MENU to menu
 			
-			boolean e = false;
+			boolean check = false; // renamed variable e to check
 			
-			while (!e) {
+			while (!check) {
 				
 				output("\n" + dateFormat.format(calendar.Date()));  //changed variable name CAL to calendar and SDF to dateFormat
-				String c = input(menu);  //renamed variable MENU to menu
+				String choice = input(menu);  //renamed variable MENU to menu and c to choice
 				
-				switch (c.toUpperCase()) {
+				switch (choice.toUpperCase()) {
 				
 				case "M": 
 					addMember();
@@ -143,7 +143,6 @@ public class Main {
 	}
 
 
-
 	private static void listBooks() {
 		output("");
 		for (book book : library.Books()) {  //renamed variable LIB to library
@@ -159,7 +158,6 @@ public class Main {
 			output(member + "\n");
 		}		
 	}
-
 
 
 	private static void borrowBook() {
@@ -221,8 +219,7 @@ public class Main {
 		System.out.print(prompt);
 		return scan.nextLine(); //changed variable IN to scan
 	}
-	
-	
+		
 	
 	private static void output(Object object) {
 		System.out.println(object);
