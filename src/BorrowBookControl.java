@@ -107,7 +107,7 @@ public class BorrowBookControl {
 			for (book book : pending) {
 				ui.display(book.toString()); //renamed variable B to book
 			}
-			COMPLETED = new ArrayList<loan>();
+			completed = new ArrayList<loan>(); //renamed COMPLETED to completed
 			ui.setState(BorrowBookUI.UiState.FINALISING); //changed UI_STATE to UiState
 			state = ControlState.FINALISING;
 		}
@@ -123,12 +123,12 @@ public class BorrowBookControl {
 
 			//renamed variable L to Library, renamed M to member and renamed variable B to book
 			loan loan = library.issueLoan(book, member); //renamed variable B to book
-			COMPLETED.add(loan);			
+			completed.add(loan);			
 		}
 		ui.display("Completed Loan Slip");
 		//changed the l in loan to Loan
 		
-		for (Loan loan : COMPLETED) {
+		for (Loan loan : completed) {
 			ui.display(loan.toString());
 		}
 
