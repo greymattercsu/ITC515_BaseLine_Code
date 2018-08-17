@@ -13,20 +13,12 @@ public class BorrowBookUI {
 	
 	//changed the formating of the constants
 	//changed enum variable name from UI_STATE to UiState 
-	public static enum UiState { INITIALISED, 
-		                         READY, 
-		                         RESTRICTED, 
-		                         SCANNING, 
-		                         IDENTIFIED, 
-		                         FINALISING, 
-		                         COMPLETED, 
-		                         CANCELLED};
+	public static enum UiState { INITIALISED,READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED};
 
 	private BorrowBookControl control;
 	private Scanner input;
 	private UiState state;  //changed variable name from UI_STATE to UiState
 
-	
 	public BorrowBookUI(BorrowBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
@@ -34,12 +26,10 @@ public class BorrowBookUI {
 		control.setUI(this);
 	}
 
-	
 	private String input(String prompt) {
 		System.out.print(prompt);
 		return input.nextLine();
 	}	
-		
 		
 	private void output(Object object) {
 		System.out.println(object);
@@ -50,24 +40,17 @@ public class BorrowBookUI {
 		this.state = state;
 	}
 
-	
-
 	//changed the spacing of the line for the switch cases to match the formating convention of the java
 	public void run() {
 		output("Borrow Book Use Case UI\n");
-		
 		while (true) {
-			
 			switch (state) {			
-			
 				case CANCELLED:
 					output("Borrowing Cancelled");
 					return;
-
 				//renamed all memberStr to memberString 
 				case READY:
 					String memberString = input("Swipe member card (press <enter> to cancel): ");//changed memberStr to memberString
-					
 					if (memberString.length() == 0) {
 						control.cancel();
 						break;
@@ -103,11 +86,8 @@ public class BorrowBookUI {
 						
 					} catch (NumberFormatException e) {
 						output("Invalid Book Id");
-					} 
-					
+					}
 					break;
-						
-				
 				//renamed all ans to answer	
 				case FINALISING:
 					String answer = input("Commit loans? (Y/N): "); //changed ans to answer
@@ -119,13 +99,9 @@ public class BorrowBookUI {
 						input("Press <any key> to complete ");
 					}
 					break;
-					
-					
 				case COMPLETED:
 					output("Borrowing Completed");
 					return;
-		
-					
 				default:
 					output("Unhandled state");
 					throw new RuntimeException("BorrowBookUI : unhandled state :" + state);			
@@ -133,10 +109,7 @@ public class BorrowBookUI {
 		}		
 	}
 
-
 	public void display(Object object) {
 		output(object);		
 	}
-
-
 }
