@@ -20,20 +20,14 @@ public class BorrowBookControl {
 
 	//changed formating for easier code reading
 	//renamed the variable CONTROL_STATE to ControlState
-	private enum ControlState { INITIALISED, 
-		                        READY, 
-		                        RESTRICTED, 
-		                        SCANNING, 
-		                        IDENTIFIED, 
-		                        FINALISING, 
-		                        COMPLETED, 
-		                        CANCELLED };
+	private enum ControlState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+								//changed as per the reveiwer's suggestion
 
 
 	private ControlState state; 
 	
-	private List<book> PENDING;
-	private List<loan> COMPLETED;
+	private List<Book> pending;		//renamed PENDING to pending
+	private List<Loan> completed;	//renamed COMPLETED to completed
 
 	private Book book; //renamed variable B to book and changed the b in book to Book
 	
@@ -79,7 +73,7 @@ public class BorrowBookControl {
 
 		//renamed variable L to Library and renamed M to member
 		if (library.memberCanBorrow(member)) {
-			PENDING = new ArrayList<>();
+			pending = new ArrayList<>();  //renamed PENDING to pending
 			ui.setState(BorrowBookUI.UiState.SCANNING); //changed UI_STATE to UiState
 			state = ControlState.SCANNING; }
 		else {
@@ -115,15 +109,15 @@ public class BorrowBookControl {
 		}
 
 
-		PENDING.add(book);//renamed variable B to book
+		pending.add(book);//renamed variable B to book   //renamed PENDING to pending
 
 		//changed the b in book to Book
-		for (Book book : PENDING) {
+		for (Book book : pending) {    //renamed PENDING to pending
 			ui.display(book.toString());
 		}
 
-		//renamed variable L to Library and renamed M to member
-		if (library.loansRemainingForMember(member) - PENDING.size() == 0) {
+		//renamed variable L to Library and renamed M to member and renamed PENDING to pending
+		if (library.loansRemainingForMember(member) - pending.size() == 0) {
 			ui.display("Loan limit reached");
 			Complete();
 		}
@@ -132,13 +126,14 @@ public class BorrowBookControl {
 	
 	public void Complete() {
 
-
-		if (PENDING.size() == 0) {
+		//renamed PENDING to pending
+		if (pending.size() == 0) {
 			cancel();
 		}
 		else {
 			ui.display("\nFinal Borrowing List");
-			for (book book : PENDING) {
+
+			for (book book : pending) {
 				ui.display(book.toString()); //renamed variable B to book
 			}
 
@@ -159,7 +154,7 @@ public class BorrowBookControl {
 
 
 		//renamed variable B to book and changed the b in book to Book
-		for (Book book : PENDING) {
+		for (Book book : pending) {
 
 			//renamed variable L to Library, renamed M to member and renamed variable B to book
 			loan loan = library.issueLoan(book, member); //renamed variable B to book
