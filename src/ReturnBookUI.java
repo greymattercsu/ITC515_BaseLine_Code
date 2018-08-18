@@ -10,17 +10,17 @@ import java.util.Scanner;
 
 public class ReturnBookUI {
 
-	public static enum UiState { INITIALISED, READY, INSPECTING, COMPLETED };
+	public static enum UiState { INITIALISED, READY, INSPECTING, COMPLETED }; //renaming the UI_STATE enum varibale to UiState
 
 	private ReturnBookControl control;
 	private Scanner input;
-	private UiState state;
+	private UiState state; //renaming the UI_STATE enum varibale to UiState
 
 	
 	public ReturnBookUI(ReturnBookControl control) {
 		this.control = control;
 		input = new Scanner(System.in);
-		state = UiState.INITIALISED;
+		state = UiState.INITIALISED; //renaming the UI_STATE enum varibale to UiState t
 		control.setUI(this);
 	}
 
@@ -36,13 +36,13 @@ public class ReturnBookUI {
 				break;
 				
 			case READY:
-				String bookString = input("Scan Book (<enter> completes): ");
-				if (bookString.length() == 0) {
+				String bookString = input("Scan Book (<enter> completes): "); //using proper variable name bookString instead of bookStr
+				if (bookString.length() == 0) { //using proper variable name bookString instead of bookStr
 					control.scanningComplete();
 				}
 				else {
 					try {
-						int bookId = Integer.valueOf(bookString).intValue();
+						int bookId = Integer.valueOf(bookString).intValue(); //using proper variable name bookString instead of bookStr
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {
@@ -52,9 +52,9 @@ public class ReturnBookUI {
 				break;				
 				
 			case INSPECTING:
-				String answer = input("Is book damaged? (Y/N): ");
+				String answer = input("Is book damaged? (Y/N): "); //using proper variable name answer instead of abbreviation ans
 				boolean isDamaged = false;
-				if (answer.toUpperCase().equals("Y")) {					
+				if (answer.toUpperCase().equals("Y")) {	 //using proper variable name answer instead of abbreviation ans				
 					isDamaged = true;
 				}
 				control.dischargeLoan(isDamaged);
@@ -86,7 +86,7 @@ public class ReturnBookUI {
 		output(object);
 	}
 	
-	public void setState(UiState state) {
+	public void setState(UiState state) { //renaming the UI_STATE enum varibale to UiState t
 		this.state = state;
 	}
 
