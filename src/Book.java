@@ -13,19 +13,19 @@ import java.io.Serializable;
 @SuppressWarnings("serial") 
 public class Book implements Serializable { // Renaming book to Book
 	
-	private String T;
-	private String A;
-	private String C;
-	private int ID;	
+	private String title; // changing variable T to title
+	private String author; // changign variable A to author
+	private String callNo; // changign variable C to callNo
+	private int id;	// changing ID to id
 	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED }; // renaming STATE to state
 	private State state; // renaming type STATE to state
 	
 	
 	public Book(String author, String title, String callNo, int id) {
-		this.A = author;
-		this.T = title;
-		this.C = callNo;
-		this.ID = id;
+		this.author = author; // changing variable this.T to this.title
+		this.title = title; // changign variable this.A to this.author
+		this.callNo = callNo; // changign variable this.C to this.callNo
+		this.id = id; // changing this.ID to this.id
 		this.state = State.AVAILABLE; // Renaming enum STATE to state
 	}
 	
