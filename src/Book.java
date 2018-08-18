@@ -11,14 +11,14 @@ import java.io.Serializable;
 
 
 @SuppressWarnings("serial") 
-public class Book implements Serializable {
+public class Book implements Serializable { // Renaming book to Book
 	
 	private String T;
 	private String A;
 	private String C;
 	private int ID;	
-	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
-	private State state;
+	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED }; // renaming STATE to state
+	private State state; // renaming type STATE to state
 	
 	
 	public Book(String author, String title, String callNo, int id) {
@@ -26,7 +26,7 @@ public class Book implements Serializable {
 		this.T = title;
 		this.C = callNo;
 		this.ID = id;
-		this.state = State.AVAILABLE;
+		this.state = State.AVAILABLE; // Renaming enum STATE to state
 	}
 	
 	
@@ -47,30 +47,30 @@ public class Book implements Serializable {
 	}
 
 	
-	public String title() {
+	public String title() { // renaming the Title to title
 		return T;
 	}
 
 
 	
-	public boolean available() {
-		return state == State.AVAILABLE;
+	public boolean available() { // renaming Available to available
+		return state == State.AVAILABLE; // Renaming enum variable STATE to state
 	}
 
 	
-	public boolean onLoan() {
-		return state == State.ON_LOAN;
+	public boolean onLoan() { // renaming on_loan to onLoan
+		return state == State.ON_LOAN; // Renaming enum variable STATE to state
 	}
 
 
-	public boolean damaged() {
+	public boolean damaged() { // renaming Damaged to damaged
 		return state == State.DAMAGED;
 	}
 
 	
-	public void borrow() {
+	public void borrow() { // renaimng Borrow to borrow
 		if (state.equals(State.AVAILABLE)) {
-			state = State.ON_LOAN;
+			state = State.ON_LOAN; // Renaming enum variable STATE to state
 		}
 		else {
 			throw new RuntimeException(String.format("Book: cannot borrow while book is in state: %s", state));
@@ -79,13 +79,13 @@ public class Book implements Serializable {
 	}
 
 	
-	public void returnBook(boolean isDamaged) {
-		if (state.equals(State.ON_LOAN)) {
+	public void returnBook(boolean isDamaged) { // renaming Return to returnBook
+		if (state.equals(State.ON_LOAN)) { // Renaming enum variable STATE to state
 			if (isDamaged) {
-				state = State.DAMAGED;
+				state = State.DAMAGED; // Renaming enum variable STATE to state
 			}
 			else {
-				state = State.AVAILABLE;
+				state = State.AVAILABLE; // Renaming enum variable STATE to state
 			}
 		}
 		else {
@@ -94,9 +94,9 @@ public class Book implements Serializable {
 	}
 
 		
-	public void repair() {
-		if (state.equals(State.DAMAGED)) {
-			state = State.AVAILABLE;
+	public void repair() { // renaming Repair to repair
+		if (state.equals(State.DAMAGED)) { // Renaming enum variable STATE to state
+			state = State.AVAILABLE; // Renaming enum variable STATE to state
 		}
 		else {
 			throw new RuntimeException(String.format("Book: cannot repair while book is in state: %s", state));
