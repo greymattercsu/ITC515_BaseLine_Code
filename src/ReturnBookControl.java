@@ -13,23 +13,14 @@ public class ReturnBookControl {
 	
 	private Library library;
 	private Loan currentLoan;
-	
-	/* 
-	ReturnBookConrol construtor
-	 */
+
+
 	public ReturnBookControl() {
 		this.library = library.INSTANCE();
 		state = ControlState.INITIALISED;
 	}
 	
-	/* 
-	@method setUI
-	@param ReturnBookUI ui
-	
-	check if current state is initalised or not
-	if current controleState is not INITIALISED then throw RuntimeExecption
-	set controlSate and ui state to READY
-	 */	
+
 	public void setUI(ReturnBookUI ui) {
 		if (!state.equals(ControlState.INITIALISED)) {
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
@@ -39,14 +30,7 @@ public class ReturnBookControl {
 		state = ControlState.READY;		
 	}
 
-	/** 
-	@method bookScanned
-	@param int bookId
 
-	Scanned the book and display appropriate message for invalid book, borrowed book that is not borrowed.
-	if Book is borrowed calculate the fine and display it.
-	finally set the state to inspecting
-	 */
 	public void bookScanned(int bookId) {
 		if (!state.equals(ControlState.READY)) {
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
@@ -77,11 +61,7 @@ public class ReturnBookControl {
 		state = ControlState.INSPECTING;		
 	}
 
-	/**
-	@method scanningComplete
 
-	set the state to completed when scan is completed
-	  */
 	public void scanningComplete() {
 		if (!state.equals(ControlState.READY)) {
 			throw new RuntimeException("ReturnBookControl: cannot call scanningComplete except in READY state");
@@ -89,12 +69,7 @@ public class ReturnBookControl {
 		ui.setState(ReturnBookUI.UiState.COMPLETED);		
 	}
 
-	/**
-	@method scanningComplete
-
-	if book is on inspection state then throw RuntimeExecption
-	set the state to reday 
-	*/
+	
 	public void dischargeLoan(boolean isDamaged) {
 		if (!state.equals(ControlState.INSPECTING)) {
 			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
