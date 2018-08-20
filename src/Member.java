@@ -73,7 +73,7 @@ public class Member implements Serializable {  //capitalising the first letter o
 
 	
 	public void takeOutLoan(loan loan) {
-		if (!LNS.containsKey(loan.getId())) {
+		if (!loans.containsKey(loan.getId())) {		//variable name LNS to loans
 			loans.put(loan.getId(), loan);
 		}
 		else {
