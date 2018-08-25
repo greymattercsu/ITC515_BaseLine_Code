@@ -10,8 +10,7 @@ public class PayFineControl {
 	
 	private PayFineUI ui;
 	private enum controlState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };			//changed enum name CONTROL_STATE to controlState
-	private controlState state;							//changed type CONTROL_STATE to controlState
-	
+	private controlState state;							//changed type CONTROL_STATE to controlState	
 	private Library library;				//changed attribute type library to Library
 	private Member member;					//changed attribute type member to Member
 
